@@ -4,6 +4,7 @@ git config --global user.email "emailaddress"
 git status
 git remote add origin https://github.com/myuserame/repositoryname.git   #link local to github
 git remote -v   # display the github-linked repositories
+git remote remove <remote-name>						#remove remote links
 
 # to add then commit
 git add *
