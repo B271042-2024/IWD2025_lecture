@@ -1,0 +1,18 @@
+git init
+git config --global user.name "username"
+git config --global user.email "emailaddress"
+git status
+git remote add origin https://github.com/myuserame/repositoryname.git   #link local to github
+git remote -v   # display the github-linked repositories
+
+# to add then commit
+git add *
+git commit -m "commitname"
+git log
+
+git push -u origin main     # push from local main to linked-remote-origin
+git push                    # push after the first push
+
+git pull origin main        # fetch and merge changes from Github
+
+git clone githublink        # download the github repo to local machine
