@@ -1,0 +1,58 @@
+# to change password
+alter user 'username'@'localhost' identified by 'new_password';
+flush privileges;		# to apply the changes
+
+
+### basics start
+##
+mysql -u s2704130 -p				# to log into mysql
+
+show databases;					# to show databases
+create database if not exists db_name;		# to create database
+create database db_name;			# to create database
+use db_name;					# to get into the database
+show tables;					# to show tables
+drop table table_1;				# to delete table_1
+alter table table_1 rename to newtable_1;	# to rename to newtable_1
+create table table_1 (colname1 int, colname2 varchar (100)); # to create table named table_1; int=integers, varchar (100)=max of 100 characters allowed
+select * from table_1;				# to show all rows from table_1
+select * from table_1 limit 5;			# to show the first 5 rows from table_1
+insert into table_1 values(1, "Edinburgh");	# to insert data into table_1
+show columns from table_1;			# to show colnames in table_1
+alter table table_1 add colname3 text ;		# like varchar but no length limit, stored separately from the table row
+alter table table_1 rename column colname3 to colname4	# to rename column
+delete from table_1 where colname1 = 1;		# to delete data if colname1 is 1
+delete from table_1 where colname2 is NULL;	# to delete data if colanme2 is NULL
+create index ind1 on table_1 (colname1);	# to index colname1
+drop index ind1 on table_1;			# to drop the index: ind1
+
+# different variety of getting info
+select colname1, count(colname1), colname2, count(colname2) from table_1 group by colname1, colname2 having count(colname1) > 1 and count(colname2) > 1;	# to list down all with counts as queried
+select distinct colname1, colname2 from table_1;	# to display unique data from table_1
+select colname1, colname2, row_number() over (partition by colname1 order by colname1) as 'row' from table_1;	# create a column displaying the number of duplicates for each row
+select colname1, colname2, count(*) from table_1 group by colname1, colname2;	# add a new column with duplication counts
+
+# from LINUX terminal
+
+mysql -u username -p db_name < file.sql		# to directly impose commands in file.sql onto mysql. e.g. file.sql content: create table 'table_2' ('id' int not null primary key, 'colname2' int not null)
+
+
+
+
+exit;						# to exit mysql environment
+##
+### basics end
+
+
+# function: help
+\h						# to list down commands
+? command					# [e.g. command: ? create]
+
+# permission
+show grants;					# to show allowed actiokns
+
+# to change password
+set password = 'new_password';			# to set new password
+alter user 'username'@'localhost' identified by 'new_password';
+flush privileges;               # to apply the changes
+

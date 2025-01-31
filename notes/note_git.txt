@@ -2,11 +2,11 @@ git init
 git config --global user.name "username"
 git config --global user.email "emailaddress"
 git status
-<<<<<<< HEAD
 
 #--- from github
 git pull origin main        # fetch and merge changes from Github
 git clone githublink        # download the github repo to local machine
+
 
 #--- to github
 # to add repo on github
@@ -17,30 +17,15 @@ git remote add origin https://github.com/myuserame/repositoryname.git   #link lo
 git remote -v   # display the github-linked repositories
 # to remove linked repos
 git remote remove <remote-name>                                         #remove remote links
-=======
-git remote add origin https://github.com/myuserame/repositoryname.git   #link local to github
-git remote -v   # display the github-linked repositories
-git remote remove <remote-name>						#remove remote links
-
->>>>>>> 250131_lecture
 # to add then commit
 git add *
 git commit -m "commitname"
 git log
-<<<<<<< HEAD
 # to transfer local to github
 git push -u origin master		# first time
 git push				# afterwards
 
 
-
-
-=======
-
-git push -u origin main     # push from local main to linked-remote-origin
-git push                    # push after the first push
-
-git pull origin main        # fetch and merge changes from Github
-
-git clone githublink        # download the github repo to local machine
->>>>>>> 250131_lecture
+#--- reset
+git reset --soft HEAD~1			# remove an unpushed commit
+git reset --mixed HEAD~1		# unstage the changes
