@@ -1,0 +1,2 @@
+chmod 755 ${HOME}/public_html
+chmod 711 ${HOME}
